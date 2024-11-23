@@ -1,0 +1,44 @@
+﻿<Window x:Class="L.Heritage.Admin.Desktop.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:widgets="clr-namespace:L.Heritage.Admin.Desktop.Widgets.UI"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        WindowState="Maximized">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/App/Routing/Routes.xaml" />
+                <ResourceDictionary Source="/App/GlobalStyles.xaml" />
+                <ResourceDictionary Source="/App/MainWindowStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="converter" />
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel>
+
+        <Border Background="{StaticResource BrushRed2}" DockPanel.Dock="Left" Padding="10"
+                Visibility="{Binding Path=IsAuthenticated, Converter={StaticResource converter}}" >
+            <StackPanel VerticalAlignment="Stretch" DataContext="{Binding SideBarVM}">
+                <StackPanel.Resources>
+                    <Style TargetType="RadioButton" BasedOn="{StaticResource NavButton}" />
+                </StackPanel.Resources>
+                <RadioButton HorizontalAlignment="Center" FontSize="25"
+                    Content="Статьи" Margin="0, 50, 0, 10"
+                    Command="{Binding NavigateArticlesCommand}" />
+                <RadioButton FontSize="25" HorizontalAlignment="Center" Content="Комнаты" Margin="0, 0, 0, 10"
+                             Command="{Binding NavigateRoomsCommand}"/>
+                <RadioButton FontSize="25" HorizontalAlignment="Center" Content="Заказы"
+                             Command="{Binding NavigateOrdersCommand}"/>
+            </StackPanel>
+        </Border>
+
+        <ContentControl Content="{Binding CurrentVM}" />
+        
+    </DockPanel>
+
+</Window>

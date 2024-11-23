@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:shared="clr-namespace:L.Heritage.Admin.Desktop.Shared.UI.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/App/GlobalStyles.xaml" />
+        <ResourceDictionary Source="/Shared/UI/Controls/ScalableEmptyButtonStyles.xaml" />
+        <ResourceDictionary Source="/Shared/UI/Controls/ScaleAnimation.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="Grid" x:Key="Layout">
+        <Setter Property="Background" Value="{StaticResource BrushRed2}" />
+    </Style>
+
+    <Style TargetType="shared:Title" x:Key="Title">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style TargetType="Grid" x:Key="AuthFormLayout">
+        <Setter Property="Margin" Value="20" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="AuthLabel">
+        <Setter Property="FontSize" Value="25" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="AuthForm">
+        <Setter Property="FontSize" Value="25" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Width" Value="250" />
+    </Style>
+
+    <Style TargetType="Button" BasedOn="{StaticResource EmptyButton}" x:Key="SignInButton">
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="Foreground" Value="{StaticResource BrushRed2}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Padding" Value="5" />
+    </Style>
+
+    <Style TargetType="Border" x:Key="ButtonBorder">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="Background" Value="{StaticResource BrusYellow1}" />
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="1" ScaleY="1" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter" >
+                <BeginStoryboard Storyboard="{StaticResource ScaleUp}" />
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave" >
+                <BeginStoryboard Storyboard="{StaticResource ScaleDown}" />
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>

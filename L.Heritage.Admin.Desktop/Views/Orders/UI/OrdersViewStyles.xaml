@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:shared="clr-namespace:L.Heritage.Admin.Desktop.Shared.UI.Controls">
+
+    <Style TargetType="shared:Poster" x:Key="Poster">
+        <Setter Property="Margin" Value="30" />
+    </Style>
+    
+</ResourceDictionary>

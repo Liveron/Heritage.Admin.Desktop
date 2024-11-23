@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="L.Heritage.Admin.Desktop.Shared.UI.Controls.Title"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+             mc:Ignorable="d" >
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/App/GlobalStyles.xaml" />
+    </UserControl.Resources>
+    
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel VerticalAlignment="Center" Margin="0, 0, 20, 0">
+                <TextBlock FontSize="50">Административная</TextBlock>
+                <TextBlock HorizontalAlignment="Right" FontSize="50">Панель</TextBlock>
+            </StackPanel>
+            <svgc:SvgIcon Margin="0, 0, 20, 0" Height="100" UriSource="/Shared/UI/Icons/Ussr.svg" Fill="{StaticResource BrusYellow1}" />
+            <TextBlock FontSize="120" VerticalAlignment="Center">Наследие</TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

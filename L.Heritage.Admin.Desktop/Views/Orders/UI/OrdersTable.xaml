@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="L.Heritage.Admin.Desktop.Views.Orders.UI.OrdersTable"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+             mc:Ignorable="d" 
+             x:Name="Root"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="OrdersTableStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid x:Name="Container">
+        <Grid.Resources>
+            <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockField}" />
+            <Style TargetType="DatePicker" BasedOn="{StaticResource DatePickerField}" />
+            <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxField}" />
+            <Style TargetType="Border" BasedOn="{StaticResource FieldBorder}" />
+            <Style TargetType="Button" BasedOn="{StaticResource FieldButton}" />
+            <Style TargetType="svgc:SvgIcon" BasedOn="{StaticResource FieldSvg}" />
+            <Style TargetType="StackPanel" BasedOn="{StaticResource ButtonsContainer}" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Border Style="{StaticResource HeaderFieldBorder}">
+            <TextBlock Style="{StaticResource HeaderField}" Text="Идентификатор" />
+        </Border>
+        <Border Style="{StaticResource HeaderFieldBorder}"  Grid.Column="1">
+            <TextBlock Style="{StaticResource HeaderField}" Text="Заселение" />
+        </Border>
+        <Border Style="{StaticResource HeaderFieldBorder}" Grid.Column="2">
+            <TextBlock Style="{StaticResource HeaderField}" Text="Выселение" />
+        </Border>
+        <Border Style="{StaticResource HeaderFieldBorder}" Grid.Column="3">
+            <TextBlock Style="{StaticResource HeaderField}" Text="Комната" />
+        </Border>
+        <Border Style="{StaticResource HeaderFieldBorder}" Grid.Column="4">
+            <TextBlock Style="{StaticResource HeaderField}" Text="Пользователь" />
+        </Border>
+        <Border Style="{StaticResource LastHeaderFieldBorder}" Grid.Column="5">
+            <Border Style="{StaticResource EmptyField}" />
+        </Border>
+            
+    </Grid>
+</UserControl>

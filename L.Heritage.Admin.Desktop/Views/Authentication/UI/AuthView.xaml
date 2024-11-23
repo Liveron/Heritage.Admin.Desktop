@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="L.Heritage.Admin.Desktop.Views.UI.AuthView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:L.Heritage.Admin.Desktop.Views.Model"
+             xmlns:shared="clr-namespace:L.Heritage.Admin.Desktop.Shared.UI.Controls"
+             xmlns:converter="clr-namespace:L.Heritage.Admin.Desktop.Features.Authentication.Lib"
+             xmlns:svgs="http://sharpvectors.codeplex.com/svgc/"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="AuthViewStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converter:LoginConverter x:Key="converter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Style="{StaticResource Layout}"> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"  />
+        </Grid.RowDefinitions>
+
+        <shared:Title Style="{StaticResource Title}"/>
+
+        <StackPanel Grid.Row="1">
+
+            <Grid Style="{StaticResource AuthFormLayout}">
+
+                <Grid.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource AuthLabel}" />
+                    <Style TargetType="TextBox" BasedOn="{StaticResource AuthForm}" />
+                </Grid.Resources>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="20" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Имя пользователя" />
+
+                <TextBox x:Name="username" Grid.Column="2" />
+
+                <Label Content="Пароль" Grid.Row="2" />
+                
+                <TextBox 
+                    x:Name="password" 
+                    Grid.Column="2" 
+                    Grid.Row="2" />
+
+            </Grid>
+            <Border Style="{StaticResource ButtonBorder}">
+                <Button Content="Войти" Command="{Binding SignInCommand}" Style="{StaticResource SignInButton}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource converter}">
+                        <Binding ElementName="username" Path="Text" />
+                        <Binding ElementName="password" Path="Text" />
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+            </Border>
+        </StackPanel>
+        
+    </Grid>
+    
+</UserControl>

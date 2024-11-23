@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Shared\UI\Icons\arrowNext.svg" />
+    <None Remove="Shared\UI\Icons\arrowPrev.svg" />
+    <None Remove="Shared\UI\Icons\bin.svg" />
+    <None Remove="Shared\UI\Icons\save.svg" />
+    <None Remove="Shared\UI\Icons\star.svg" />
+    <None Remove="Shared\UI\Icons\Ussr.svg" />
+    <None Remove="Shared\UI\Images\brown-paper.jpg" />
+    <None Remove="Shared\UI\Images\gazeta.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Shared\UI\Icons\arrowNext.svg" />
+    <Resource Include="Shared\UI\Icons\arrowPrev.svg" />
+    <Resource Include="Shared\UI\Icons\bin.svg" />
+    <Resource Include="Shared\UI\Icons\save.svg" />
+    <Resource Include="Shared\UI\Icons\star.svg" />
+    <Resource Include="Shared\UI\Icons\Ussr.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Shared\UI\Images\brown-paper.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Shared\UI\Images\gazeta.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.2.0" />
+    <PackageReference Include="SharpVectors" Version="1.8.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="App\Stores\" />
+    <Folder Include="Shared\Config\" />
+  </ItemGroup>
+
+</Project>
